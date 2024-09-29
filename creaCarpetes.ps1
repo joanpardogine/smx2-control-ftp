@@ -10,6 +10,11 @@ $scriptActual = "C:\Users\administrator\Desktop\creaCarpetes.ps1"  # Ruta a crea
 $registrePath = Join-Path -Path $basePath -ChildPath "registre.txt"
 $controlPath = Join-Path -Path $basePath -ChildPath "control.txt"  # Fitxer per guardar la informació de l'alumne
 
+# Comprovar si el directori base existeix, sinó, créa'l
+if (-Not (Test-Path -Path $basePath)) {
+    New-Item -ItemType Directory -Path $basePath
+}
+
 # Comprovar si el fitxer d'alumnes existeix a Desktop o a ServeisAlumnes
 if (Test-Path -Path $fitxerAlumnesDesktop) {
     $fitxerAlumnes = $fitxerAlumnesDesktop
@@ -53,11 +58,6 @@ if (Test-Path -Path $controlPath) {
 
 # Ruta per a les carpetes de l'alumne
 $alumnePath = Join-Path -Path $basePath -ChildPath $nomCarpeta
-
-# Comprovar si el directori base existeix, sinó, créa'l
-if (-Not (Test-Path -Path $basePath)) {
-    New-Item -ItemType Directory -Path $basePath
-}
 
 # Comprovar si les carpetes de l'alumne ja existeixen
 if (-Not (Test-Path -Path $alumnePath)) {
