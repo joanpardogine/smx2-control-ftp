@@ -1,21 +1,23 @@
 # Ruta base per a les carpetes
 $basePath = "C:\ServeisAlumnes"
+$desktopPath = "C:\Users\administrator\Desktop\"
 
-# Rutes per als fitxers
-$fitxerAlumnesDesktop = "C:\Users\administrator\Desktop\alumnes.txt"  # Ruta original a alumnes.txt
-$fitxerAlumnesServeis = Join-Path -Path $basePath -ChildPath "alumnes.txt"  # Ruta a alumnes.txt a ServeisAlumnes
-$scriptActual = "C:\Users\administrator\Desktop\creaCarpetes.ps1"  # Ruta a creaCarpetes.ps1
+# Ruta per al fitxer que conté els noms d'alumnes
+
+$nomFitxerAlumnes = "alumnes.txt"  
+$nomScriptActual = "creaCarpetes.ps1"  
+$nomFitxerRegitre = "registre.txt"  
+$nomFitxerControl = "control.txt"
+
+$fitxerAlumnes = Join-Path -Path $desktopPath -ChildPath $nomFitxerAlumnes # Ruta a alumnes.txt
+$scriptActual = Join-Path -Path $desktopPath -ChildPath $nomScriptActual # Ruta a creaCarpetes.ps1
 
 # Ruta per al fitxer de registre
-$registrePath = Join-Path -Path $basePath -ChildPath "registre.txt"
-$controlPath = Join-Path -Path $basePath -ChildPath "control.txt"  # Fitxer per guardar la informació de l'alumne
+$registrePath = Join-Path -Path $basePath -ChildPath $nomFitxerRegitre
+$controlPath = Join-Path -Path $basePath -ChildPath $nomFitxerControl  # Fitxer per guardar la informació de l'alumne
 
-# Comprovar si el fitxer d'alumnes existeix a Desktop o a ServeisAlumnes
-if (Test-Path -Path $fitxerAlumnesDesktop) {
-    $fitxerAlumnes = $fitxerAlumnesDesktop
-} elseif (Test-Path -Path $fitxerAlumnesServeis) {
-    $fitxerAlumnes = $fitxerAlumnesServeis
-} else {
+# Comprovar si el fitxer d'alumnes existeix
+if (-Not (Test-Path -Path $fitxerAlumnes)) {
     Write-Host "El fitxer d'alumnes no existeix. Assegura't que el fitxer estigui a la ruta especificada."
     exit
 }
