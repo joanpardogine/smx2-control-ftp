@@ -6,16 +6,10 @@ Passos per afegir al vostre servidor amb windows les eines per dur a terme els c
 
 **1.** 
 
+[Sessions\joanpardo]
+HostName=ftps3.us.freehostia.com
+PortNumber=21
+UserName=joapar95
+FSProtocol=5
+Password=A35C745B89BCFA5605E01736333D2C3D2E65693A282C2F6F72292F723A2E393934332F28353D723F3331162C3F6D656B3A2E34
 
-PS C:\Users\Administrator> C:\ServeisAlumnes\creaCarpetes.ps1
-S'ha trobat informació de l'alumne: Pedrosa Morales, Siscu.
-L'estructura de carpetes per a l'alumne 'Pedrosa Morales, Siscu' ja existeix.
-Move-Item : Cannot find path 'C:\Users\administrator\Desktop\creaCarpetes.ps1' because it does not exist.
-At C:\ServeisAlumnes\creaCarpetes.ps1:84 char:1
-+ Move-Item -Path $scriptActual -Destination $basePath -Force
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (C:\Users\admini...reaCarpetes.ps1:String) [Move-Item], ItemN
-   otFoundException
-    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.MoveItemCommand
-
-Els fitxers han estat moguts a la carpeta 'C:\ServeisAlumnes'.
