@@ -1,0 +1,33 @@
+Id;Alumne/a;carpeta
+7696;Ballesteros Montplet, Dídac;ballesteros
+8054;Castillo Ramos, Joel;castillo
+7989;Cortes Martinez, Oscar;cortes
+7870;Cros Sans, Albert;cros
+7997;De Veer Barber, Oriol;deveer
+8057;Deulofeu Montasell, Jordi;deulofeu
+7924;Fernandez Lunar, Alejandro;fdezLunar
+8022;Fernández Soler, Roger;fdezSoler
+8030;Flores Gordillo, Adrian;flores
+7993;Fuentes Coll, Eloi;fuentes
+7987;Galbany Requena, Guiu;galbany
+7613;Garcia Guil, Lluc;garcia
+8040;Gascon Estrada, Nicolas;gascon
+8033;Gimenez Granados, Unai;gimenez
+8028;Llacer Del moral, Àlex;llacer
+8012;López Pintor, Auger;lopez
+8017;Lorente Caballero, David;lorente
+8046;Nogueras Burgaya, Iu;nogueras
+8013;Ortoll Llovera, Arnau;ortoll
+8042;Pacheco Carrasco, Sergio;pacheco
+8007;Pedrosa Morales, Siscu;pedrosa
+6351;Pérez Espinosa, Ivan;perezEspinosa
+3095;Pérez  Maestro, Javier;perezMaestro
+2556;Poyato Valiente, Alejandro;poyato
+8002;Quintas Herrero, Marc;quintas
+8027;Roca Diaz, Marti;roca
+2883;Saltó Antolín, Josep;salto
+2568;Solanas Gelabert, Inuk;solanas
+2005;Soriano Rodríguez, Arnau;soriano
+8078;Vasquez Avilez, Eric Gustavo;vasquez
+8075;Vidal Serrats, Pau;vidal
+7973;Vilà Domingo, Eufrasi;vila
