@@ -4,7 +4,7 @@ $basePath = "C:\ServeisAlumnes"
 # Rutes per als fitxers
 $fitxerAlumnesDesktop = "C:\Users\administrator\Desktop\alumnes.txt"  # Ruta original a alumnes.txt
 $fitxerAlumnesServeis = Join-Path -Path $basePath -ChildPath "alumnes.txt"  # Ruta a alumnes.txt a ServeisAlumnes
-$scriptActual = "C:\Users\administrator\Desktop\creaCarpetes.ps1"  # Ruta a creaCarpetes.ps1
+$scriptActual = $MyInvocation.MyCommand.Path  # Obtenir la ruta de l'script actual
 
 # Ruta per al fitxer de registre
 $registrePath = Join-Path -Path $basePath -ChildPath "registre.txt"
@@ -80,7 +80,11 @@ if (-Not (Test-Path -Path $alumnePath)) {
 }
 
 # Moure els fitxers a la carpeta "C:\ServeisAlumnes"
-Move-Item -Path $fitxerAlumnes -Destination $basePath -Force
-Move-Item -Path $scriptActual -Destination $basePath -Force
-
-Write-Host "Els fitxers han estat moguts a la carpeta 'C:\ServeisAlumnes'."
+# Moure només si l'script no s'executa des de C:\ServeisAlumnes
+if ($scriptActual -ne (Join-Path -Path $basePath -ChildPath "creaCarpetes.ps1")) {
+    Move-Item -Path $fitxerAlumnes -Destination $basePath -Force
+    Move-Item -Path $scriptActual -Destination $basePath -Force
+    Write-Host "Els fitxers han estat moguts a la carpeta 'C:\ServeisAlumnes'."
+} else {
+    Write-Host "L'script ja s'ha mogut a 'C:\ServeisAlumnes', no es mourà de nou."
+}
