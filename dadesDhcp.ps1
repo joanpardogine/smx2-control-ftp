@@ -20,19 +20,25 @@ foreach ($nic in $networkInterfaces) {
 $dhcpScopes = Get-DhcpServerv4Scope
 $dhcpInfo = ""
 
-foreach ($scope in $dhcpScopes) {
-    $nomAmbit = $scope.Name
-    $rangInici = $scope.StartRange
-    $rangFinal = $scope.EndRange
+if ($dhcpScopes.Count -eq 0) {
+    # Si no hi ha àmbits DHCP configurats, afegir el missatge
+    $dhcpInfo = "DHCP no configurat"
+} else {
+    # Si hi ha àmbits configurats, recollir la informació
+    foreach ($scope in $dhcpScopes) {
+        $nomAmbit = $scope.Name
+        $rangInici = $scope.StartRange
+        $rangFinal = $scope.EndRange
 
-    # Recollir les reserves associades a l'àmbit
-    $reserves = Get-DhcpServerv4Reservation -ScopeId $scope.ScopeId
-    $reservesInfo = ""
-    foreach ($reservation in $reserves) {
-        $reservesInfo += "Reserva - MAC: $($reservation.ClientId), IP: $($reservation.IPAddress)`n"
+        # Recollir les reserves associades a l'àmbit
+        $reserves = Get-DhcpServerv4Reservation -ScopeId $scope.ScopeId
+        $reservesInfo = ""
+        foreach ($reservation in $reserves) {
+            $reservesInfo += "Reserva - MAC: $($reservation.ClientId), IP: $($reservation.IPAddress)`n"
+        }
+
+        $dhcpInfo += "Àmbit: $nomAmbit, Rang: $rangInici - $rangFinal`nReserves:`n$reservesInfo`n"
     }
-
-    $dhcpInfo += "Àmbit: $nomAmbit, Rang: $rangInici - $rangFinal`nReserves:`n$reservesInfo`n"
 }
 
 # Escriure tota la informació recollida al fitxer
