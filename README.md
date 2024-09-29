@@ -7,9 +7,15 @@ Passos per afegir al vostre servidor amb windows les eines per dur a terme els c
 **1.** 
 
 
-Out-File : Could not find a part of the path 'C:\ServeisAlumnes\control.txt'.
-At C:\Users\Administrator\Desktop\creaCarpetes.ps1:47 char:22
-+         $nomAlumne | Out-File -FilePath $controlPath -Encoding UTF8
-+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : OpenError: (:) [Out-File], DirectoryNotFoundException
-    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+PS C:\Users\Administrator> C:\ServeisAlumnes\creaCarpetes.ps1
+S'ha trobat informació de l'alumne: Pedrosa Morales, Siscu.
+L'estructura de carpetes per a l'alumne 'Pedrosa Morales, Siscu' ja existeix.
+Move-Item : Cannot find path 'C:\Users\administrator\Desktop\creaCarpetes.ps1' because it does not exist.
+At C:\ServeisAlumnes\creaCarpetes.ps1:84 char:1
++ Move-Item -Path $scriptActual -Destination $basePath -Force
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\admini...reaCarpetes.ps1:String) [Move-Item], ItemN
+   otFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.MoveItemCommand
+
+Els fitxers han estat moguts a la carpeta 'C:\ServeisAlumnes'.
